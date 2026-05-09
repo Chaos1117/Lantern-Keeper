@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         joystick = Object.FindFirstObjectByType<Joystick>();
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
         currentFuel = maxFuel;
         FuelBar.SetMaxFuel(maxFuel);
     }
