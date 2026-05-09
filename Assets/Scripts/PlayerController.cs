@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public int currentFuel;
 
     public FuelBar FuelBar;
+
+    public string loseScene;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,6 +31,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(15);
+        }
+
+        if(currentFuel <= 0)
+        {
+            SceneManager.LoadScene(loseScene);
         }
     }
 

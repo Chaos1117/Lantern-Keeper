@@ -10195,6 +10195,7 @@ MonoBehaviour:
   maxFuel: 100
   currentFuel: 0
   FuelBar: {fileID: 1606239786}
+  loseScene: Lose
 --- !u!1001 &1237156805
 PrefabInstance:
   m_ObjectHideFlags: 0
