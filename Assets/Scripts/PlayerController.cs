@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
     public int speed;
 
     public int maxFuel = 100;
-    public int currentFuel;
+    public float currentFuel;
+    public float fuelDrainRate = 5f;
 
     public FuelBar FuelBar;
 
@@ -26,7 +27,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Player Movement
         rb.linearVelocity = new Vector3(joystick.Horizontal * speed, rb.linearVelocity.y, joystick.Vertical * speed);
+
+        //Fuel Drain
+        DrainFuel();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -39,10 +44,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void DrainFuel()
+    {
+        currentFuel -= fuelDrainRate * Time.deltaTime;
+        //prevents fuel above 100 or below 0
+        currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel);
+        FuelBar.SetFuel((int)currentFuel);
+    }
 
     public void TakeDamage(int damage)
     {
         currentFuel -= damage;
-        FuelBar.SetFuel(currentFuel);
+        currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel);
+        FuelBar.SetFuel((int)currentFuel);
+    }
+
+    public void AddFuel(int amount)
+    {
+        currentFuel += amount;
+        currentFuel = Mathf.Clamp(currentFuel, 0, maxFuel);
+        FuelBar.SetFuel((int)currentFuel);
     }
 }

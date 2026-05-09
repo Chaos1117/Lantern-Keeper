@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager gm;
 
-    //score
-    public GameObject scoreText;
-    public static int theScore;
-
-    void Update()
-    {
-        scoreText.GetComponent<Text>().text = "SCORE: " + theScore;
-    }
+    //lamps
+    public int totalLamps = 5;
+    private int activatedLamps = 0;
+    public string WinScene;
 
     void Awake()
     {
@@ -24,4 +21,21 @@ public class GameManager : MonoBehaviour
             Destroy(this);
     }
 
+    public void ActivateLamp()
+    {
+        activatedLamps++;
+        Debug.Log("Lamps Lit: " + activatedLamps);
+
+        if(activatedLamps >= totalLamps)
+        {
+            WinGame();
+        }
+    }
+
+   public void WinGame()
+    {
+        Debug.Log("you win");
+        SceneManager.LoadScene(WinScene);
+
+    }
 }
