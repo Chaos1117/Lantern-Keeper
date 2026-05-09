@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     {
         //Player Movement
         rb.linearVelocity = new Vector3(joystick.Horizontal * speed, rb.linearVelocity.y, joystick.Vertical * speed);
+        var input = new Vector3(joystick.Horizontal, 0, joystick.Vertical);
+        if(input != Vector3.zero)
+        {
+            transform.forward = input;
+        }
 
         //Fuel Drain
         DrainFuel();

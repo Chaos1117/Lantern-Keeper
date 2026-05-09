@@ -10,11 +10,11 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 desiredPosition = player.position + player.TransformDirection(offset);
+        Vector3 desiredPosition = player.position + offset;
         Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothPosition;
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, player.rotation, smoothSpeed);
+        transform.LookAt(player);
     }
 
 }
