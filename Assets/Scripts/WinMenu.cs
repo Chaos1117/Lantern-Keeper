@@ -3,10 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class WinMenu : MonoBehaviour
 {
-    //Continue load another level?
+    int currentSceneIndex;
+    int nextSceneIndex;
+
+
+    //Continue load next level
     public void Continue()
     {
-        SceneManager.LoadScene("Level 1");
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        nextSceneIndex = currentSceneIndex + 1;
+
+        if(nextSceneIndex >= SceneManager.sceneCountInBuildSettings) //restart to level 1 if player beats level 3
+        {
+            nextSceneIndex = 2;
+        }
     }
 
     //main menu button

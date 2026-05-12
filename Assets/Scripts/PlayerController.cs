@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     public int maxFuel = 100;
     public float currentFuel;
-    public float fuelDrainRate = 5f;
+    public float fuelDrainRate = 3f;
 
     public FuelBar FuelBar;
 
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
         if(currentFuel <= 0)
         {
+            GameManager.SetCurrentLevel(SceneManager.GetActiveScene().name); //saves current level
             SceneManager.LoadScene("Lose");
         }
     }

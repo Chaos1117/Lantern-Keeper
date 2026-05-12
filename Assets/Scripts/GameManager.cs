@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public int totalLamps = 5;
     private int activatedLamps = 0;
 
+    //retry level player died on
+    public static string currentLevel;
+
     void Awake()
     {
         if (!gm)
@@ -20,6 +23,10 @@ public class GameManager : MonoBehaviour
             Destroy(this);
     }
 
+    public static void SetCurrentLevel(string sceneName)
+    {
+        currentLevel = sceneName;
+    }
     public void ActivateLamp()
     {
         activatedLamps++;
