@@ -1,5 +1,6 @@
 Final project for my SGD 268 Mobile Programming II class.
 All assets used were free from the Unity asset store. I do not own any of them.
+
 Asset List:
 Skybox – AllSkyFree – 10 Sky/Skybox Set by rpgwhitelock (richardwhitelock).
 [https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014](https://assetstore.unity.com/packages/2d/textures-materials/sky/allsky-free-10-sky-skybox-set-146014)
