@@ -17,6 +17,9 @@ public class UnlitController : MonoBehaviour
     public float freezeTime = 2f;
     private bool isFrozen = false;
     private float freezeTimer;
+
+    public AudioSource freezeAudio;
+    public AudioSource unlitAudio;
     
 
     void Start()
@@ -61,8 +64,9 @@ public class UnlitController : MonoBehaviour
         freezeTimer -= Time.deltaTime;
         rb.linearVelocity = Vector3.zero;
         rend.material.color = Color.gray;
+        AudioSource.PlayClipAtPoint(freezeAudio.clip, transform.position);
 
-        if(freezeTimer <= 0)
+        if (freezeTimer <= 0)
         {
             isFrozen = false;
         }
@@ -77,6 +81,7 @@ public class UnlitController : MonoBehaviour
             if(Vector3.Distance(transform.position, player.position) <= 1.5f)
             {
                 player.GetComponent<PlayerController>().TakeDamage(damageAmount);
+                AudioSource.PlayClipAtPoint(unlitAudio.clip, transform.position);
             }
 
             damageTimer = 0f;

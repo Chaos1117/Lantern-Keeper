@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour
 
     public FuelBar FuelBar;
 
-    public string loseScene;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -46,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
         if(currentFuel <= 0)
         {
-            SceneManager.LoadScene(loseScene);
+            SceneManager.LoadScene("Lose");
         }
     }
 

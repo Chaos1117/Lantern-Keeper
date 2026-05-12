@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     //lamps
     public int totalLamps = 5;
     private int activatedLamps = 0;
-    public string WinScene;
 
     void Awake()
     {
@@ -35,7 +34,7 @@ public class GameManager : MonoBehaviour
    public void WinGame()
     {
         Debug.Log("you win");
-        SceneManager.LoadScene(WinScene);
+        SceneManager.LoadScene("Win");
 
     }
 }
