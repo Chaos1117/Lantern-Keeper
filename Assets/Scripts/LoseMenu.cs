@@ -6,7 +6,7 @@ public class LoseMenu : MonoBehaviour
     //Retry button
     public void Retry()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level 1");
     }
 
     //Quit button

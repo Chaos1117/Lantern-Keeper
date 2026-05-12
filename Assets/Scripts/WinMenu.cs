@@ -6,7 +6,7 @@ public class WinMenu : MonoBehaviour
     //Continue load another level?
     public void Continue()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level 1");
     }
 
     //main menu button
